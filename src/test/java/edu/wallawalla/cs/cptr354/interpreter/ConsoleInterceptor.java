@@ -1,4 +1,4 @@
-package edu.wallawalla.cs.cptr354.parser;
+package edu.wallawalla.cs.cptr354.interpreter;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;

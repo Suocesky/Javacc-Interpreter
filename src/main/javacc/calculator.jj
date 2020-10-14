@@ -4,7 +4,7 @@ options
 }
 PARSER_BEGIN(Calculator)
 
-package org.apache.asterix.lang.sqlpp.parser;
+package edu.wallawalla.cs.cptr354.interpreter;
 
 public class Calculator
 {
