@@ -12,42 +12,42 @@ import org.junit.Test;
 public class CalculatorTests {
 	@Test
 	public void testAddition() throws Exception {
-		String inputString = "5 + 6\n";
+		String inputString = "5 + 6" + System.lineSeparator();
 		String result = ConsoleInterceptor.copyOut(() -> {
 			Calculator cal = new Calculator(new StringReader(inputString));
 			cal.parseOneLine();
 		});
-		assertEquals("11.0\n", result);
+		assertEquals("11.0" + System.lineSeparator(), result);
 	}
 
 	@Test
 	public void testSubtraction() throws Exception {
-		String inputString = "5 - 6\n";
+		String inputString = "5 - 6" + System.lineSeparator();
 		String result = ConsoleInterceptor.copyOut(() -> {
 			Calculator cal = new Calculator(new StringReader(inputString));
 			cal.parseOneLine();
 		});
-		assertEquals("-1.0\n", result);
+		assertEquals("-1.0" + System.lineSeparator(), result);
 	}
 
 	@Test
 	public void testMultiplication() throws Exception {
-		String inputString = "5 * 6\n";
+		String inputString = "5 * 6" + System.lineSeparator();
 		String result = ConsoleInterceptor.copyOut(() -> {
 			Calculator cal = new Calculator(new StringReader(inputString));
 			cal.parseOneLine();
 		});
-		assertEquals("30.0\n", result);
+		assertEquals("30.0" + System.lineSeparator(), result);
 	}
 
 	@Test
 	public void testDivision() throws Exception {
-		String inputString = "30 / 6\n";
+		String inputString = "30 / 6" + System.lineSeparator();
 		String result = ConsoleInterceptor.copyOut(() -> {
 			Calculator cal = new Calculator(new StringReader(inputString));
 			cal.parseOneLine();
 		});
-		assertEquals("5.0\n", result);
+		assertEquals("5.0" + System.lineSeparator(), result);
 	}
 
 }
