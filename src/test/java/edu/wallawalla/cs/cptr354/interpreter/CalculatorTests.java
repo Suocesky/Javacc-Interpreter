@@ -6,7 +6,6 @@ import static org.junit.Assert.assertEquals;
 
 import java.io.StringReader;
 
-// import org.apache.asterix.lang.sqlpp.parser.Calculator;
 import org.junit.Test;
 
 public class CalculatorTests {
