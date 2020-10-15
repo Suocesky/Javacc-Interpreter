@@ -120,6 +120,16 @@ public class CalculatorTests {
 	}
 
 	@Test
+	public void testRoundUp() throws Exception {
+		String inputString = "round(3.14159, 4)" + System.lineSeparator();
+		String result = ConsoleInterceptor.copyOut(() -> {
+			Calculator cal = new Calculator(new StringReader(inputString));
+			cal.parseOneLine();
+		});
+		assertEquals("3.1416" + System.lineSeparator(), result);
+	}
+
+	@Test
 	public void testPrecedence() throws Exception {
 		String inputString = "2 * (4 + 3)" + System.lineSeparator();
 		String result = ConsoleInterceptor.copyOut(() -> {
