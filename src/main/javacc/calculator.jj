@@ -59,6 +59,13 @@ double function():
         b=expr()
         ")"
         { return Math.max(a,b); }
+    |
+        "round("
+        a=expr()
+        ","
+        b=expr()
+        ")"
+        { return Math.round(a * Math.pow(10,b)) / Math.pow(10,b); }
     )
 }
 double expr():
