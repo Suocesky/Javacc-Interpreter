@@ -39,13 +39,38 @@ void parseOneLine():
   | <EOL>
   | <EOF>               { System.exit(-1); }
 }
+double function():
+{
+    double a;
+    double b;
+}
+{
+    (
+        "min("
+        a=expr()
+        ","
+        b=expr()
+        ")"
+        { return Math.min(a,b); }
+    |
+        "max("
+        a=expr()
+        ","
+        b=expr()
+        ")"
+        { return Math.max(a,b); }
+    )
+}
 double expr():
 {
     double a;
     double b;
 }
 {
-    a=term()
+    (
+        a=term()
+    |   a=function()
+    )
     (
         "+" b=expr()    { a += b; }
     |   "-" b=expr()    { a -= b; }
