@@ -129,4 +129,14 @@ public class CalculatorTests {
 		});
 		assertEquals("14.0" + System.lineSeparator(), result);
 	}
+
+	@Test
+	public void testPrecedenceExp() throws Exception {
+		String inputString = "1 + 2^7 * 2" + System.lineSeparator();
+		String result = ConsoleInterceptor.copyOut(() -> {
+			Calculator cal = new Calculator(new StringReader(inputString));
+			cal.parseOneLine();
+		});
+		assertEquals("257.0" + System.lineSeparator(), result);
+	}
 }
