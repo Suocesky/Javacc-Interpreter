@@ -62,6 +62,7 @@ double term():
     (
         "*" b=term()    { a *= b; }
     |   "/" b=term()    { a /= b; }
+    |   "%" b=term()    { a %= b; }
     )*
                         { return a; }
 }

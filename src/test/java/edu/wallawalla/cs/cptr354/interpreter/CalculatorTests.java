@@ -6,7 +6,7 @@ import static org.junit.Assert.assertEquals;
 
 import java.io.StringReader;
 
-import org.apache.asterix.lang.sqlpp.parser.Calculator;
+// import org.apache.asterix.lang.sqlpp.parser.Calculator;
 import org.junit.Test;
 
 public class CalculatorTests {
@@ -50,4 +50,83 @@ public class CalculatorTests {
 		assertEquals("5.0" + System.lineSeparator(), result);
 	}
 
+	@Test
+	public void testExponent() throws Exception {
+		String inputString = "2 ^ 8" + System.lineSeparator();
+		String result = ConsoleInterceptor.copyOut(() -> {
+			Calculator cal = new Calculator(new StringReader(inputString));
+			cal.parseOneLine();
+		});
+		assertEquals("256.0" + System.lineSeparator(), result);
+	}
+
+	@Test
+	public void testModulo() throws Exception {
+		String inputString = "77 % 100" + System.lineSeparator();
+		String result = ConsoleInterceptor.copyOut(() -> {
+			Calculator cal = new Calculator(new StringReader(inputString));
+			cal.parseOneLine();
+		});
+		assertEquals("77.0" + System.lineSeparator(), result);
+	}
+
+	@Test
+	public void testMinimumA() throws Exception {
+		String inputString = "min(56, 42)" + System.lineSeparator();
+		String result = ConsoleInterceptor.copyOut(() -> {
+			Calculator cal = new Calculator(new StringReader(inputString));
+			cal.parseOneLine();
+		});
+		assertEquals("42.0" + System.lineSeparator(), result);
+	}
+
+	@Test
+	public void testMinimumB() throws Exception {
+		String inputString = "min(23, 77)" + System.lineSeparator();
+		String result = ConsoleInterceptor.copyOut(() -> {
+			Calculator cal = new Calculator(new StringReader(inputString));
+			cal.parseOneLine();
+		});
+		assertEquals("23.0" + System.lineSeparator(), result);
+	}
+
+	@Test
+	public void testMaximumA() throws Exception {
+		String inputString = "max(117, 22)" + System.lineSeparator();
+		String result = ConsoleInterceptor.copyOut(() -> {
+			Calculator cal = new Calculator(new StringReader(inputString));
+			cal.parseOneLine();
+		});
+		assertEquals("117.0" + System.lineSeparator(), result);
+	}
+
+	@Test
+	public void testMaximumB() throws Exception {
+		String inputString = "max(127, 1337)" + System.lineSeparator();
+		String result = ConsoleInterceptor.copyOut(() -> {
+			Calculator cal = new Calculator(new StringReader(inputString));
+			cal.parseOneLine();
+		});
+		assertEquals("1337.0" + System.lineSeparator(), result);
+	}
+
+	@Test
+	public void testRound() throws Exception {
+		String inputString = "round(6.02214, 3)" + System.lineSeparator();
+		String result = ConsoleInterceptor.copyOut(() -> {
+			Calculator cal = new Calculator(new StringReader(inputString));
+			cal.parseOneLine();
+		});
+		assertEquals("6.022" + System.lineSeparator(), result);
+	}
+
+	@Test
+	public void testPrecedence() throws Exception {
+		String inputString = "2 * (4 + 3)" + System.lineSeparator();
+		String result = ConsoleInterceptor.copyOut(() -> {
+			Calculator cal = new Calculator(new StringReader(inputString));
+			cal.parseOneLine();
+		});
+		assertEquals("14.0" + System.lineSeparator(), result);
+	}
 }
