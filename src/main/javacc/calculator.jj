@@ -58,7 +58,7 @@ double term():
     double b;
 }
 {
-    a=unary()
+    a=exp()
     (
         "*" b=term()    { a *= b; }
     |   "/" b=term()    { a /= b; }
@@ -66,6 +66,18 @@ double term():
     )*
                         { return a; }
 }
+double exp()
+{
+    double a;
+    double b;
+}
+{
+    a=unary()
+    (
+        "^" b=exp()     { a ^= b;}
+    )*
+
+}                       { return a; }
 double unary():
 {
     double a;
