@@ -148,4 +148,14 @@ public class CalculatorTests {
 		});
 		assertEquals("257.0" + System.lineSeparator(), result);
 	}
+
+	@Test
+	public void fullTest() throws Exception {
+		String inputString = "1+3*4-5*(2^(min(6,10))+12)-4" + System.lineSeparator();
+		String result = ConsoleInterceptor.copyOut(() -> {
+			Calculator cal = new Calculator(new StringReader(inputString));
+			cal.parseOneLine();
+		});
+		assertEquals("-367.0" + System.lineSeparator(), result);
+	}
 }

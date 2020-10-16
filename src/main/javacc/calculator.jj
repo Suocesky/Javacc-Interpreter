@@ -106,8 +106,8 @@ double exp():
 {
     a=unary()
     (
-        "^" b=exp()     { a = Math.pow(a,b);}
-    )*
+        "^" b=exp()   { a = Math.pow(a,b);}
+    )?
                         { return a;}
 }                       
 double unary():
