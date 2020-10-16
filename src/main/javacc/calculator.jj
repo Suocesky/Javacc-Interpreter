@@ -108,8 +108,8 @@ double exp():
     (
         "^" b=exp()     { a ^= b;}
     )*
-
-}                       { return a; }
+                        { return a;}
+}                       
 double unary():
 {
     double a;
