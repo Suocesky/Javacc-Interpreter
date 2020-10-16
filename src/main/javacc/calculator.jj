@@ -98,7 +98,7 @@ double term():
     )*
                         { return a; }
 }
-double exp()
+double exp():
 {
     double a;
     double b;
